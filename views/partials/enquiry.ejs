@@ -1,0 +1,3 @@
+<form method="post" action="/enquiry" class="box"><% if (typeof pid!=='undefined') { %><input type="hidden" name="propertyId" value="<%= pid %>"><% } %>
+<input name="name" placeholder="Name" required><input name="email" type="email" placeholder="Email" required><input name="phone" placeholder="Phone">
+<textarea name="message" rows="4" placeholder="Message"></textarea><button>Send enquiry</button></form>

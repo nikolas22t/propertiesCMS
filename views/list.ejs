@@ -1,0 +1,12 @@
+<%- include('partials/head',{title:'Properties'}) %>
+<form class="filters">
+<select name="status"><option value="">Sale & rent</option><option value="sale" <%= q.status==='sale'?'selected':'' %>>Sale</option><option value="rent" <%= q.status==='rent'?'selected':'' %>>Rent</option></select>
+<select name="type"><option value="">Any type</option><% types.forEach(t=>{ %><option <%= q.type===t?'selected':'' %>><%= t %></option><% }) %></select>
+<select name="city"><option value="">Any location</option><% cities.forEach(c=>{ %><option <%= q.city===c?'selected':'' %>><%= c %></option><% }) %></select>
+<input name="minPrice" type="number" placeholder="Min price" value="<%= q.minPrice||'' %>"><input name="maxPrice" type="number" placeholder="Max price" value="<%= q.maxPrice||'' %>">
+<input name="beds" type="number" placeholder="Min beds" value="<%= q.beds||'' %>"><input name="keyword" placeholder="Keyword" value="<%= q.keyword||'' %>">
+<select name="sort"><option value="">Newest</option><option value="price_asc" <%= q.sort==='price_asc'?'selected':'' %>>Price ↑</option><option value="price_desc" <%= q.sort==='price_desc'?'selected':'' %>>Price ↓</option></select>
+<button>Filter</button></form>
+<p class="muted"><%= list.length %> properties found</p>
+<div class="grid"><% list.forEach(p=>{ %><%- include('partials/card',{p}) %><% }) %></div>
+<%- include('partials/foot') %>

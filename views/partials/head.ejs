@@ -1,0 +1,8 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title><%= typeof title!=='undefined' ? title+' | ' : '' %><%= s.siteName %></title>
+<link rel="stylesheet" href="/css/style.css">
+<style>:root{--primary:<%= s.primaryColor %>;--accent:<%= s.accentColor %>}</style></head><body>
+<header class="top"><div class="wrap nav">
+<a href="/" class="brand"><% if (s.logoUrl) { %><img src="<%= s.logoUrl %>" alt="<%= s.siteName %>"><% } else { %><%= s.siteName %><% } %></a>
+<nav><a href="/properties?status=sale">Buy</a><a href="/properties?status=rent">Rent</a><a href="/properties">All</a><a href="/contact">Contact</a><% if (user) { %><a href="/admin">Admin</a><% } %></nav>
+</div></header><main class="wrap">

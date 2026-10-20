@@ -1,0 +1,4 @@
+<%- include('partials/head',{title:'Contact'}) %>
+<h1>Contact us</h1><p><%= s.address %><br><%= s.phone %><br><%= s.email %></p>
+<% if (sent) { %><p class="ok">Thanks — we'll be in touch.</p><% } %><%- include('partials/enquiry') %>
+<%- include('partials/foot') %>

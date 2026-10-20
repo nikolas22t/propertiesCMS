@@ -1,0 +1,27 @@
+{
+  "name": "propertiescms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikolas22t/propertiescms.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nikolas22t/propertiescms/issues"
+  },
+  "homepage": "https://github.com/nikolas22t/propertiescms#readme",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "ejs": "^7.0.2",
+    "express": "^5.3.0",
+    "express-session": "^1.19.0",
+    "multer": "^2.4.0"
+  }
+}

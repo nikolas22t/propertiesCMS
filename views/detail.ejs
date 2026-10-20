@@ -1,0 +1,7 @@
+<%- include('partials/head',{title:p.title}) %>
+<div class="detail"><div><div class="gallery"><% p.images.forEach(i=>{ %><img src="<%= i %>" alt=""><% }) %></div>
+<h1><%= p.title %></h1><p class="price"><%= fmt(p.price) %><%= p.status==='rent'?' /month':'' %></p>
+<ul class="facts"><li><b>Type</b><%= p.type %></li><li><b>Location</b><%= p.city %></li><li><b>Bedrooms</b><%= p.bedrooms %></li><li><b>Bathrooms</b><%= p.bathrooms %></li><li><b>Area</b><%= p.area %> m²</li></ul>
+<p><%= p.description %></p></div>
+<aside><h3>Interested?</h3><% if (sent) { %><p class="ok">Thanks — we'll be in touch.</p><% } %><%- include('partials/enquiry',{pid:p.id}) %></aside></div>
+<%- include('partials/foot') %>

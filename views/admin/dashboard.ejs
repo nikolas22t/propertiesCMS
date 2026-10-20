@@ -1,0 +1,10 @@
+<%- include('../partials/head',{title:'Admin'}) %>
+<div class="bar"><h1>Dashboard</h1><div><a class="btn" href="/admin/properties/new">+ New property</a> <a class="btn alt" href="/admin/settings">Branding & settings</a>
+<form method="post" action="/admin/logout" class="inline"><button class="alt">Log out</button></form></div></div>
+<h2>Properties (<%= props.length %>)</h2><table><tr><th>Title</th><th>Status</th><th>Price</th><th>City</th><th></th></tr>
+<% props.forEach(p=>{ %><tr><td><a href="/properties/<%= p.id %>"><%= p.title %></a><%= p.featured?' ★':'' %></td><td><%= p.status %></td><td><%= fmt(p.price) %></td><td><%= p.city %></td>
+<td><a href="/admin/properties/<%= p.id %>/edit">Edit</a> <form method="post" action="/admin/properties/<%= p.id %>/delete" class="inline" onsubmit="return confirm('Delete?')"><button class="link">Delete</button></form></td></tr><% }) %></table>
+<h2>Enquiries (<%= enquiries.length %>)</h2><table><tr><th>Date</th><th>Name</th><th>Contact</th><th>Property</th><th>Message</th><th></th></tr>
+<% enquiries.slice().reverse().forEach(e=>{ %><tr><td><%= e.createdAt.slice(0,10) %></td><td><%= e.name %></td><td><%= e.email %><br><%= e.phone %></td><td><%= e.propertyId||'-' %></td><td><%= e.message %></td>
+<td><form method="post" action="/admin/enquiries/<%= e.id %>/delete" class="inline"><button class="link">Delete</button></form></td></tr><% }) %></table>
+<%- include('../partials/foot') %>

@@ -1,0 +1,17 @@
+<%- include('../partials/head',{title:'Edit property'}) %>
+<h1><%= p.id?'Edit':'New' %> property</h1>
+<form method="post" action="/admin/properties<%= p.id?'/'+p.id:'' %>" enctype="multipart/form-data" class="box form">
+<label>Title<input name="title" value="<%= p.title||'' %>" required></label>
+<label>Type<input name="type" value="<%= p.type||'' %>" placeholder="Apartment, House, Villa, Land…"></label>
+<label>Status<select name="status"><option value="sale" <%= p.status==='sale'?'selected':'' %>>For sale</option><option value="rent" <%= p.status==='rent'?'selected':'' %>>For rent</option></select></label>
+<label>Price<input name="price" type="number" value="<%= p.price||'' %>"></label>
+<label>City / area<input name="city" value="<%= p.city||'' %>"></label>
+<label>Bedrooms<input name="bedrooms" type="number" value="<%= p.bedrooms||0 %>"></label>
+<label>Bathrooms<input name="bathrooms" type="number" value="<%= p.bathrooms||0 %>"></label>
+<label>Area (m²)<input name="area" type="number" value="<%= p.area||0 %>"></label>
+<label class="full">Description<textarea name="description" rows="5"><%= p.description||'' %></textarea></label>
+<label class="full">Image URLs (one per line — remove a line to delete it)<textarea name="imageUrls" rows="3"><%= (p.images||[]).join('\n') %></textarea></label>
+<label class="full">Upload images<input type="file" name="images" multiple accept="image/*"></label>
+<label><input type="checkbox" name="featured" <%= p.featured?'checked':'' %>> Featured on home page</label>
+<button class="full">Save</button></form>
+<%- include('../partials/foot') %>

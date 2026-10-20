@@ -1,0 +1,7 @@
+<%- include('partials/head') %>
+<section class="hero"><h1><%= s.tagline %></h1>
+<form action="/properties" class="search"><select name="status"><option value="">Buy or rent</option><option value="sale">Buy</option><option value="rent">Rent</option></select>
+<select name="city"><option value="">Any location</option><% cities.forEach(c=>{ %><option><%= c %></option><% }) %></select>
+<input name="keyword" placeholder="Keyword"><button>Search</button></form></section>
+<h2>Featured properties</h2><div class="grid"><% featured.forEach(p=>{ %><%- include('partials/card',{p}) %><% }) %></div>
+<%- include('partials/foot') %>

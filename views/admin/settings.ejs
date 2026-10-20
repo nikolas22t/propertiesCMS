@@ -1,0 +1,11 @@
+<%- include('../partials/head',{title:'Settings'}) %>
+<h1>Branding & settings</h1><% if (saved) { %><p class="ok">Saved.</p><% } %>
+<form method="post" enctype="multipart/form-data" class="box form">
+<% [['siteName','Site name'],['tagline','Home tagline'],['email','Email'],['phone','Phone'],['address','Address'],['currency','Currency symbol'],['footerText','Footer text'],['logoUrl','Logo URL']].forEach(([k,l])=>{ %>
+<label><%= l %><input name="<%= k %>" value="<%= s[k] %>"></label><% }) %>
+<label>Upload logo<input type="file" name="logo" accept="image/*"></label>
+<label>Primary colour<input type="color" name="primaryColor" value="<%= s.primaryColor %>"></label>
+<label>Accent colour<input type="color" name="accentColor" value="<%= s.accentColor %>"></label>
+<label>New admin password<input type="password" name="newPassword" placeholder="Leave blank to keep"></label>
+<button class="full">Save settings</button></form>
+<%- include('../partials/foot') %>
